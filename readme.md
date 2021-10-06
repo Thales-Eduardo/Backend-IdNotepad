@@ -1,6 +1,6 @@
 # Backend do app IdNotepad
 
-Esse projeto e backend do app IdNotepad
+Esse projeto e o backend do app IdNotepad
 
 > Para iniciar o projeto.
 
