@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 
 @Entity('post')
-class Category {
+export class Post {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -29,5 +29,3 @@ class Category {
   @UpdateDateColumn()
   updated_at: Date;
 }
-
-export default Category;
