@@ -39,8 +39,11 @@ export class PostRepository implements IPostRepository {
     }
   }
 
-  public async findAllPost(): Promise<Post[]> {
-    return await this.PostRepository.find();
+  public async findAllPost(page: number, limit: number): Promise<Post[]> {
+    return await this.PostRepository.find({
+      skip: (page - 1) * limit,
+      take: limit,
+    });
   }
 
   public async findById(id: string): Promise<Post | undefined> {
