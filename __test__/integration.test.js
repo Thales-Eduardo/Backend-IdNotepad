@@ -38,4 +38,33 @@ describe('Integration tests', () => {
 
     await axios.delete(`${url}/post/delete/${post.data.id}`);
   });
+
+  it('Find All post', async () => {
+    const post1 = await axios.post(`${url}/post`, {
+      title: 'post1',
+      check: false,
+      immediate: false,
+      urgent: false,
+    });
+
+    const post2 = await axios.post(`${url}/post`, {
+      title: 'post1',
+      check: false,
+      immediate: false,
+      urgent: false,
+    });
+
+    const list = await axios.get(`${url}/post/find_all`, {
+      params: {
+        page: 1,
+        limit: 2,
+      },
+    });
+
+    expect(list.status).toBe(200);
+    expect(list.data).toHaveLength(2);
+
+    await axios.delete(`${url}/post/delete/${post1.data.id}`);
+    await axios.delete(`${url}/post/delete/${post2.data.id}`);
+  });
 });

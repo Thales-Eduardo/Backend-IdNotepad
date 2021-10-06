@@ -7,15 +7,15 @@ export class CreatePostController {
   public async create(req: Request, res: Response) {
     const { title, check, immediate, urgent } = req.body;
 
-    const createProduct = container.resolve(CreatePostUseCase);
+    const createPost = container.resolve(CreatePostUseCase);
 
-    const product = await createProduct.execute({
+    const post = await createPost.execute({
       title,
       check,
       immediate,
       urgent,
     });
 
-    return res.json(product);
+    return res.json(post);
   }
 }
